@@ -23,7 +23,7 @@ public class Music : MonoBehaviour {
 			while(clip == lastClip){
 				clip = notes[Random.Range(0, notes.Length)];	
 			}
-			audio.PlayOneShot (clip);
+			GetComponent<AudioSource>().PlayOneShot (clip);
 			// Debug.Log ("Playing");
 			lastClip = clip;
 		}

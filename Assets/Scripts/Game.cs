@@ -81,17 +81,17 @@ public class Game : MonoBehaviour {
 	public void PauseGame(){
 		paused = true;
 		Time.timeScale = 0.0f;
-		rake.active = false;
-		highlight.active = false;
+        rake.gameObject.SetActive(false);
+        highlight.gameObject.SetActive(false);
 		Camera.main.GetComponent<ColorCorrectionCurves>().saturation = 0.0f;
 	}
 	
 	void UnpauseGame(){
 		paused = false;
 		Time.timeScale = 1.0f;
-		rake.active = true;
-		highlight.active = true;
-		Camera.main.GetComponent<ColorCorrectionCurves>().saturation = 1.0f;
+        rake.gameObject.SetActive(true);
+        highlight.gameObject.SetActive(true);
+        Camera.main.GetComponent<ColorCorrectionCurves>().saturation = 1.0f;
 	}
 	
 	void StartGame(){
@@ -191,10 +191,10 @@ public class Game : MonoBehaviour {
 		}
 		// Highlight closed loops
 		foreach(KeyValuePair<string, Transform> pair in board){
-			pair.Value.renderer.material.color = Color.white;	
+			pair.Value.GetComponent<Renderer>().material.color = Color.white;	
 		}
 		foreach(KeyValuePair<string, Sand> pair in blocks){
-			pair.Value.renderer.material.color = new Color(0.9f, 1.0f, 0.8f, 0.1f);
+			pair.Value.GetComponent<Renderer>().material.color = new Color(0.9f, 1.0f, 0.8f, 0.1f);
 		}
 		// Debug.Log (blocks.Count + " blocks in loops");
 		if(blocks.Count == requiredBlocks){

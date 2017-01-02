@@ -25,7 +25,7 @@ public class Rake : MonoBehaviour {
 		Vector2 mousePosition = Vector3.zero;
 		bool hovering = false;
 		if(Physics.Raycast(ray, out hit, 100)){
-			if(hit.collider.gameObject.renderer && hit.collider.gameObject.name == "Sand(Clone)"){
+			if(hit.collider.gameObject.GetComponent<Renderer>() && hit.collider.gameObject.name == "Sand(Clone)"){
 				mousePosition = new Vector2(hit.collider.gameObject.transform.position.x, hit.collider.gameObject.transform.position.z);
 				hovering = true;
 				highlight.transform.position = hit.collider.gameObject.transform.position;

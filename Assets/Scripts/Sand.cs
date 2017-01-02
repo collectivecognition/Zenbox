@@ -40,23 +40,23 @@ public class Sand : MonoBehaviour {
 	}
 	
 	public void Clear (){
-		renderer.material = plainMaterial;
+		GetComponent<Renderer>().material = plainMaterial;
 		state = State.Empty;
 	}
 	
 	public void DropRock (){
-		renderer.material = plainMaterial;	
+		GetComponent<Renderer>().material = plainMaterial;	
 		state = State.Rock;
 	}
 	
 	public void RakeHorizontal (){
-		renderer.material = horizontalMaterial;
+		GetComponent<Renderer>().material = horizontalMaterial;
 		transform.rotation = Quaternion.Euler(0, 0, 0);
 		state = State.Horizontal;
 	}
 	
 	public void RakeVertical (){
-		renderer.material = verticalMaterial;
+		GetComponent<Renderer>().material = verticalMaterial;
 		transform.rotation = Quaternion.Euler(0, 0, 0);
 		state = State.Vertical;
 	}
@@ -65,19 +65,19 @@ public class Sand : MonoBehaviour {
 		state = s;
 		switch(state){
 			case State.LeftDown:
-				renderer.material = angledMaterial;
+				GetComponent<Renderer>().material = angledMaterial;
 				transform.rotation = Quaternion.Euler(0, 180, 0);
 				break;
 			case State.RightDown:
-				renderer.material = angledMaterial;
+				GetComponent<Renderer>().material = angledMaterial;
 				transform.rotation = Quaternion.Euler(0, 270, 0);
 				break;
 			case State.LeftUp:
-				renderer.material = angledMaterial;
+				GetComponent<Renderer>().material = angledMaterial;
 				transform.rotation = Quaternion.Euler(0, 90, 0);
 				break;
 			case State.RightUp:
-				renderer.material = angledMaterial;
+				GetComponent<Renderer>().material = angledMaterial;
 				transform.rotation = Quaternion.Euler(0, 0, 0);
 				break;
 		}
